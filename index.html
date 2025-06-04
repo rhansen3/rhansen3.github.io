@@ -1,30 +1,231 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryder Hansen - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
 
-<h1>The Portfolio of Ryder Hansen</h1>
+    <nav class="bg-gray-800 text-white p-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex flex-wrap justify-center sm:justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-300 hover:text-blue-100 transition-colors duration-200 mb-2 sm:mb-0">Ryder Hansen</a>
+            <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-lg">
+                <a href="#game-projects" class="hover:text-blue-300 transition-colors duration-200">Game Projects</a>
+                <a href="#education" class="hover:text-blue-300 transition-colors duration-200">Education</a>
+                <a href="#work-experience" class="hover:text-blue-300 transition-colors duration-200">Experience</a>
+                <a href="#skills" class="hover:text-blue-300 transition-colors duration-200">Skills</a>
+                <a href="#other-projects" class="hover:text-blue-300 transition-colors duration-200">Other Projects</a>
+            </div>
+        </div>
+    </nav>
 
-<h2>Projects</h2>
-<ul>
-<li><a href="https://rhansen3.itch.io/swornfish">Swornfish</a></li>
-  <ul>
-    <li>Trailer can be found here: <a href="https://www.youtube.com/watch?v=e2dmOJANFV0">https://www.youtube.com/watch?v=e2dmOJANFV0</a>.</li>
-    <li>Winner of the EECS494 Winter 2025 showcase with 163 votes.</li>
-    <li>Developed many of the systems and design choices of the game, along with a team of 4 other developers.</li>
-    <li>Implemented the entire "krill tree" upgrade system myself, as well as designing the abilities and design choices surrounding it.</li>
-    <li>Designed the persistent data system to allow for players to exit the game and reload while maintaining their progress in the game, as well as across different scenes in Unity.</li>
-    <li>Created most of the UI and UX elements in the game.</li>
-    <li>Technology used: Unity, C#</li>
-  </ul>
-<li><a href="https://rhansen3.itch.io/sheldon">Sheldon</a></li>
-  <ul>
-    <li>A small game where you control Sheldon. Sheldon has a shield that you can use to platform, defend yourself, and attack your enemies.</li>
-    <li>Created the entirety of this game, including the entire design and technical production efforts.</li>
-    <li>Technology used: Unity, C#</li>
-  </ul>
-<li><a href="https://rhansen3.itch.io/metroid-remake">Metroid Unity Remake</a></li>
-  <ul>
-    <li>A remake of Metroid for the NES in Unity with a custom level and mechanic playable to completion</li>
-    <li>Worked on about half of all of the programming, development, and creative decisions for the custom mechanic/level. My partner did the other half, however all work and decision-making was evenly split.</li>
-    <li>Technology used: Unity, C#</li>
-  </ul>
-</ul>
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-4xl">
+
+        <header class="text-center mb-12 bg-white p-6 rounded-lg shadow-md fade-in-section">
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-2 leading-tight">Ryder Hansen</h1>
+            <p class="text-lg text-gray-600 mb-4">Video Game Developer & Software Engineer</p>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 text-md">
+                <a href="mailto:ryderjhansen3@gmail.com" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">ryderjhansen3@gmail.com</a>
+                <span class="text-gray-600">(850) 300-2759</span>
+                <span class="text-gray-600">Ann Arbor, MI</span>
+                <a href="https://github.com/rhansen3" class="text-blue-600 hover:text-blue-800 transition-colors duration-200" target="_blank" rel="noopener noreferrer">github.com/rhansen3</a>
+            </div>
+        </header>
+
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8 fade-in-section" id="game-projects">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4 border-b-2 border-blue-500 pb-2">Video Game Development Projects</h2>
+            <div class="space-y-8">
+                <div class="pb-6 border-b border-gray-200 last:border-b-0">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                        <a href="https://rhansen3.itch.io/swornfish" class="text-blue-600 hover:underline transition-colors duration-200" target="_blank" rel="noopener noreferrer">Swornfish</a>
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-600 ml-4 space-y-1">
+                            <div class="relative w-full overflow-hidden rounded-lg" style="padding-top: 56.25%;">
+                                <iframe
+                                    class="absolute top-0 left-0 w-full h-full"
+                                    src="https://www.youtube.com/embed/e2dmOJANFV0?si=IlVHdxjEuWDJuas6"
+                                    title="YouTube video player"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allowfullscreen
+                                ></iframe>
+                            </div>
+                        <li>Winner of the EECS494 Winter 2025 showcase with 163 votes.</li>
+                        <li>Developed many of the systems and design choices of the game, along with a team of 4 other developers.</li>
+                        <li>Implemented the entire "krill tree" upgrade system myself, as well as designing the abilities and design choices surrounding it.</li>
+                        <li>Designed the persistent data system to allow for players to exit the game and reload while maintaining their progress in the game, as well as across different scenes in Unity.</li>
+                        <li>Created most of the UI and UX elements in the game.</li>
+                        <li>Technology used: Unity, C#</li>
+                    </ul>
+                </div>
+
+                <div class="pb-6 border-b border-gray-200 last:border-b-0">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                        <a href="https://rhansen3.itch.io/sheldon" class="text-blue-600 hover:underline transition-colors duration-200" target="_blank" rel="noopener noreferrer">Sheldon</a>
+                    </h3>
+                    <p class="text-gray-700 mb-2">A small game where you control Sheldon. Sheldon has a shield that you can use to platform, defend yourself, and attack your enemies.</p>
+                    <ul class="list-disc list-inside text-gray-600 ml-4 space-y-1">
+                        <li>Created the entirety of this game, including the entire design and technical production efforts.</li>
+                        <li>Technology used: Unity, C#</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                        <a href="https://rhansen3.itch.io/metroid-remake" class="text-blue-600 hover:underline transition-colors duration-200" target="_blank" rel="noopener noreferrer">Metroid Unity Remake</a>
+                    </h3>
+                    <p class="text-gray-700 mb-2">A remake of Metroid for the NES in Unity with a custom level and mechanic playable to completion.</p>
+                    <ul class="list-disc list-inside text-gray-600 ml-4 space-y-1">
+                        <li>Worked on about half of all of the programming, development, and creative decisions for the custom mechanic/level. My partner did the other half, however all work and decision-making was evenly split.</li>
+                        <li>Technology used: Unity, C#</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8 fade-in-section" id="education">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4 border-b-2 border-blue-500 pb-2">Education</h2>
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold text-gray-800">University of Michigan - Ann Arbor</h3>
+                <p class="text-gray-600">BSE Computer Science</p>
+                <p class="text-gray-600">May 2026 | Ann Arbor, MI</p>
+                <p class="text-gray-700 mt-2">Cumulative GPA: 3.92; Major GPA: 3.94</p>
+                <p class="text-gray-700">University Honors - Fall 2022; Dean’s list - Fall 2022, Winter 2023, Fall 2023, Winter 2024, Fall 2025</p>
+                <p class="text-gray-700 mt-4 font-medium">Relevant Coursework (Grade Received):</p>
+                <ul class="list-disc list-inside text-gray-600 ml-4 space-y-1">
+                    <li>Introduction to Machine Learning (A+)</li>
+                    <li>Web Systems (A)</li>
+                    <li>Computer Security (A)</li>
+                    <li>Computer Game Design and Development (A+)</li>
+                    <li>Data Structures and Algorithms (A-)</li>
+                    <li>Technical Communication (A+)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8 fade-in-section" id="work-experience">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4 border-b-2 border-blue-500 pb-2">Work Experience</h2>
+
+            <div class="mb-6 pb-6 border-b border-gray-200 last:border-b-0">
+                <h3 class="text-xl font-semibold text-gray-800">Roblox</h3>
+                <p class="text-gray-600">Software Engineering Intern</p>
+                <p class="text-gray-600">May 2025 – Aug. 2025 | San Mateo, CA</p>
+                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                    <li>Worked with the Anti-Cheat and Engine Security team to secure the engine against a class of exploit software that was previously undetected via computer vision analysis with machine learning tools.</li>
+                    <li>Engineered an architecture to automatically detect possible cheaters, capture and manipulate data on the client, send the data through various data pipelines, and deliver that data to a machine learning model for classification.</li>
+                </ul>
+                <p class="text-gray-700 mt-3 font-medium">Technologies used: <span class="font-normal">C++, Git, Python, PyTorch, Windows, Data Pipelines, Obfuscation, Exploit Detection</span></p>
+            </div>
+
+            <div class="mb-6 pb-6 border-b border-gray-200 last:border-b-0">
+                <h3 class="text-xl font-semibold text-gray-800">Sabel Systems Technology Solutions, LLC</h3>
+                <p class="text-gray-600">IT Intern</p>
+                <p class="text-gray-600">May 2024 – Aug. 2024 | Beavercreek, OH (Remote)</p>
+                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                    <li>Developed SabelGPT, an internal application using Python, OpenAI API, and LLM technology that allowed employees to use ordinary language to browse and retrieve large amounts of company data and information.</li>
+                    <li>Created, tested, and optimized CI/CD pipelines using GitLab CI/CD and several different C++ applications.</li>
+                    <li>Contributed to the company’s cloud engineering platform, Spacestation, by integrating several different API services using certificate authentication to provide data analytics to the user and internal services.</li>
+                </ul>
+                <p class="text-gray-700 mt-3 font-medium">Technologies used: <span class="font-normal">C++, Python, Ubuntu, Docker, GitLab CI/CD, OpenAI API, Azure DevOps, Microsoft Office, ServiceNow, Git, PowerShell, Jira, Agile methodologies, Bash, Rest APIs, Certificate authentication</span></p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold text-gray-800">Michigan Dining</h3>
+                <p class="text-gray-600">Dining Service Worker</p>
+                <p class="text-600">Jan. 2023 – Aug. 2024 | Ann Arbor, MI</p>
+                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                    <li>Interacted with hundreds of students daily in order to provide a great customer service experience.</li>
+                    <li>Collaborated with other employees in small groups to ensure fast and convenient dining for students.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8 fade-in-section" id="skills">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4 border-b-2 border-blue-500 pb-2">Skills & Abilities</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Languages:</h3>
+                    <p>C++, Python, C, C#, Unity, SQL, MATLAB, Javascript, RStudio, Java, HTML, and CSS</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Core Competencies:</h3>
+                    <p>Oral and written communication, technical presentations and write-ups</p>
+                </div>
+                <div class="md:col-span-2">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Areas of Expertise:</h3>
+                    <p>Machine learning, computer vision, software engineering, algorithms, video game development</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-lg shadow-md fade-in-section" id="other-projects">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4 border-b-2 border-blue-500 pb-2">Other Projects</h2>
+            <div class="mb-4 pb-4 border-b border-gray-200 last:border-b-0">
+                <h3 class="text-xl font-semibold text-gray-800">ARV - Autonomous Robotic Vehicle Team</h3>
+                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                    <li>Designed models to assist with computer vision capabilities of a fully autonomous robotic vehicle.</li>
+                    <li>Developed a machine learning model in order to more accurately and efficiently detect obstacles.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-semibold text-gray-800">WolverineSoft - Video game development</h3>
+                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                    <li>Lead several small teams in order to create and publish small projects in a short time frame.</li>
+                    <li>Participated in several game jams and discuss various aspects of video game development.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const fadeInSections = document.querySelectorAll('.fade-in-section');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        fadeInSections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+    </script>
+</body>
 </html>
