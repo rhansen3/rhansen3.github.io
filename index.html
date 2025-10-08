@@ -42,6 +42,25 @@
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .sidebar-btn.active {
+            background-color: #4f46e5;
+            color: white;
+        }
+        .game-tab-btn {
+            padding: 0.75rem 1.5rem;
+            color: #9ca3af; /* text-gray-400 */
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s ease-in-out;
+            font-weight: 500;
+        }
+        .game-tab-btn:hover {
+            color: #e5e7eb; /* text-gray-200 */
+        }
+        .game-tab-btn.active {
+            color: white;
+            border-color: #4f46e5; /* indigo-600 */
+            font-weight: 600;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-300 antialiased">
@@ -60,7 +79,7 @@
         </div>
     </nav>
 
-    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-3xl">
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
 
         <header class="text-center mb-16 fade-in-section">
             <div class="relative p-8 rounded-xl overflow-hidden animated-gradient shadow-2xl">
@@ -76,197 +95,225 @@
             </div>
         </header>
 
-        <section class="bg-gray-800 p-6 rounded-lg shadow-md mb-8 fade-in-section" id="about-me">
-            <h2 class="text-3xl font-bold text-gray-50 mb-4 border-b-2 border-blue-500 pb-2">About Me</h2>
-            <p class="text-gray-300 text-lg leading-relaxed text-justify">
-                I am a senior at the University of Michigan - Ann Arbor, studying computer science. In my free time, I am a game developer working on <a href="#game-projects"><u>several different projects</u></a>. I also write a lot in my free time and read a lot of books, especially classical literature.
-            </p>
-        </section>
+        <main>
+            <section class="bg-gray-800 p-6 rounded-lg shadow-md fade-in-section mb-8" id="game-projects">
+                <h2 class="text-3xl font-bold text-gray-50 mb-4 border-b-2 border-blue-500 pb-2">Video Game Development Projects</h2>
+                
+                <div class="flex flex-col sm:flex-row justify-center mb-6 border-b border-gray-700 max-w-3xl mx-auto">
+                    <button class="game-tab-btn active" data-target="swornfish-panel">Swornfish</button>
+                    <button class="game-tab-btn" data-target="sheldon-panel">Sheldon</button>
+                </div>
 
-        <section class="bg-gray-800 p-6 rounded-lg shadow-md mb-8 fade-in-section" id="game-projects">
-            <h2 class="text-3xl font-bold text-gray-50 mb-4 border-b-2 border-blue-500 pb-2">Video Game Development Projects</h2>
-            <div class="space-y-8">
-                <div class="pb-6 border-b border-gray-700 last:border-b-0">
-                    <h3 class="text-2xl font-bold text-gray-100 mb-2">
-                        <a href="https://rhansen3.itch.io/swornfish" class="text-blue-300 text-3xl font-extrabold underline hover:text-blue-100 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Swornfish</a>
-                    </h3>
-                    <ul class="list-disc list-inside text-gray-300 ml-4 space-y-1">
-                            <div class="relative w-full overflow-hidden rounded-lg" style="padding-top: 56.25%;">
-                                <iframe
-                                    class="absolute top-0 left-0 w-full h-full"
-                                    src="https://www.youtube.com/embed/e2dmOJANFV0?si=IlVHdxjEuWDJuas6"
-                                    title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin"
-                                    allowfullscreen
-                                ></iframe>
+                <div id="game-panels-container" class="mt-8">
+                    <div id="swornfish-panel" class="game-panel">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-gray-100 mb-2">
+                                <a href="https://rhansen3.itch.io/swornfish" class="text-blue-300 text-3xl font-extrabold underline hover:text-blue-100 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Swornfish</a>
+                            </h3>
+                        </div>
+                        
+                        <div class="my-4 max-w-[960px] mx-auto">
+                            <div class="flex flex-row gap-2 mb-4">
+                                <button id="show-trailer" class="sidebar-btn active flex-grow p-3 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors text-center">Watch Trailer</button>
+                                <button id="show-game" class="sidebar-btn flex-grow p-3 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors text-center">Play Game</button>
                             </div>
-                        <li>Winner of the EECS494 Winter 2025 showcase with 163 votes.</li>
-                        <li>Developed many of the systems and design choices of the game, along with a team of 4 other developers.</li>
-                        <li>Implemented the entire "krill tree" upgrade system myself, as well as designing the abilities and design choices surrounding it.</li>
-                        <li>Designed the persistent data system to allow for players to exit the game and reload while maintaining their progress in the game, as well as across different scenes in Unity.</li>
-                        <li>Created most of the UI and UX elements in the game.</li>
-                        <li>Technology used: Unity, C#</li>
-                    </ul>
-                </div>
+                            <div id="swornfish-content" class="w-full">
+                                <div id="trailer-container" class="relative w-full overflow-hidden rounded-lg" style="padding-top: 56.25%;">
+                                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/e2dmOJANFV0?si=IlVHdxjEuWDJuas6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                                <div id="game-container" class="relative w-full overflow-hidden rounded-lg hidden" style="padding-top: 55.6%;">
+                                    <iframe id="swornfish-iframe" class="absolute top-0 left-0 w-full" style="height: 106.5%;" frameborder="0" data-src="https://itch.io/embed-upload/13461794?color=000000"><a href="https://rhansen3.itch.io/swornfish">Play Swornfish on itch.io</a></iframe>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="pb-6 border-b border-gray-700 last:border-b-0">
-                    <h3 class="text-2xl font-bold text-gray-100 mb-2">
-                        <a href="https://rhansen3.itch.io/sheldon" class="text-blue-300 text-3xl font-extrabold underline hover:text-blue-100 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Sheldon</a>
-                    </h3>
-                    <p class="text-gray-300 mb-2 text-justify">A small game where you control Sheldon. Sheldon has a shield that you can use to platform, defend yourself, and attack your enemies.</p>
-                    <ul class="list-disc list-inside text-gray-300 ml-4 space-y-1">
-                        <li>Created the entirety of this game, including the entire design and technical production efforts.</li>
-                        <li>Technology used: Unity, C#</li>
-                    </ul>
-                </div>
+                        <div class="max-w-4xl mx-auto">
+                            <ul class="list-disc list-inside text-gray-300 ml-4 mt-4 space-y-1">
+                                <li>Winner of the EECS494 Winter 2025 showcase with 163 votes.</li>
+                                <li>Developed many of the systems and design choices of the game, along with a team of 4 other developers.</li>
+                                <li>Implemented the entire "krill tree" upgrade system myself, as well as designing the abilities and design choices surrounding it.</li>
+                                <li>Designed the persistent data system to allow for players to exit the game and reload while maintaining their progress in the game, as well as across different scenes in Unity.</li>
+                                <li>Created most of the UI and UX elements in the game.</li>
+                                <li>Technology used: Unity, C#</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <div>
-                    <h3 class="text-2xl font-bold text-gray-100 mb-2">
-                        <a href="https://rhansen3.itch.io/metroid-remake" class="text-blue-300 text-3xl font-extrabold underline hover:text-blue-100 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Metroid Unity Remake</a>
-                    </h3>
-                    <p class="text-gray-300 mb-2 text-justify">A remake of Metroid for the NES in Unity with a custom level and mechanic playable to completion.</p>
-                    <ul class="list-disc list-inside text-gray-300 ml-4 space-y-1">
-                        <li>Worked on about half of all of the programming, development, and creative decisions for the custom mechanic/level. My partner did the other half, however all work and decision-making was evenly split.</li>
-                        <li>Technology used: Unity, C#</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        
-        <section class="bg-gray-800 p-6 rounded-lg shadow-md mb-8 fade-in-section" id="work-experience">
-            <h2 class="text-3xl font-bold text-gray-50 mb-4 border-b-2 border-blue-500 pb-2">Work Experience</h2>
+                    <div id="sheldon-panel" class="game-panel hidden">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-gray-100 mb-2">
+                                <a href="https://rhansen3.itch.io/sheldon" class="text-blue-300 text-3xl font-extrabold underline hover:text-blue-100 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Sheldon</a>
+                            </h3>
+                        </div>
 
-            <div class="pb-6 border-b border-gray-700 last:border-b-0">
-                <h3 class="text-xl font-semibold text-gray-100">University of Michigan</h3>
-                <p class="text-gray-300">Teacher's Assistant, Computer Game Design and Development</p>
-                <p class="text-gray-300">Aug. 2025 – Present | Ann Arbor, MI</p>
-                <ul class="list-disc list-inside text-gray-200 mt-2 space-y-1">
-                    <li>Instructed hundreds of students in an upper level game development course teaching Unity and C#.</li>
-                    <li>Held weekly office hours and contributed to the course curriculum, providing instruction and guidance to students about the process of developing games and designing engaging experiences through iterative design.</li>
-                    <li>Graded student projects and offered guidance on how to improve their gameplay systems across the semester.</li>
-                </ul>
-            </div>
+                        <div class="my-4 max-w-[960px] mx-auto">
+                            <div id="sheldon-game-container" class="relative w-full overflow-hidden rounded-lg hidden" style="padding-top: 60%;">
+                                <iframe id="sheldon-iframe" class="absolute top-0 left-0 w-full" style="height: 115%;" frameborder="0" data-src="https://itch.io/embed-upload/12920701?color=333333" allowfullscreen=""><a href="https://rhansen3.itch.io/sheldon">Play Sheldon on itch.io</a></iframe>
+                            </div>
+
+                            <div id="sheldon-play-button-container" class="text-center py-20">
+                                <button id="sheldon-play-btn" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-6 rounded-lg text-lg transition-colors duration-200 shadow-lg">
+                                    <i class="fas fa-play mr-2"></i>Play Game
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="max-w-4xl mx-auto">
+                            <p class="text-gray-300 mb-2">A small game where you control Sheldon. Sheldon has a shield that you can use to platform, defend yourself, and attack your enemies.</p>
+                            <ul class="list-disc list-inside text-gray-300 ml-4 mt-4 space-y-1">
+                                <li>Created the entirety of this game, including the entire design and technical production efforts.</li>
+                                <li>Technology used: Unity, C#</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
-            <div class="mt-6 pb-6 border-b border-gray-700 last:border-b-0">
-                <h3 class="text-xl font-semibold text-gray-100">Roblox</h3>
-                <p class="text-gray-300">Software Engineering Intern</p>
-                <p class="text-gray-300">May 2025 – Aug. 2025 | San Mateo, CA</p>
-                <ul class="list-disc list-inside text-gray-200 mt-2 space-y-1">
-                    <li>Contributed to the game engine, developing features involving machine learning and C++ within a large codebase.</li>
-                    <li>These projects dealt with large amounts of user data and the associated manipulation, transmission, storage, etc.</li>
-                    <li>Specific details omitted for security reasons.</li>
-                </ul>
-                <p class="text-gray-200 mt-3 font-medium">Technologies used: <span class="font-normal">C++, AWS, Terraform, Git, Python, Windows API, Data Pipelines, CMake</span></p>
-            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-8">
+                <div class="lg:col-span-1 space-y-8">
+                    <section class="bg-gray-800 p-6 rounded-lg shadow-md fade-in-section" id="about-me">
+                        <h2 class="text-3xl font-bold text-gray-50 mb-4 border-b-2 border-blue-500 pb-2">About Me</h2>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            I am a senior at the University of Michigan - Ann Arbor, studying computer science. In my free time, I am a game developer working on <a href="#game-projects"><u>several different projects</u></a>. I also write a lot in my free time and read a lot of books, especially classical literature.
+                        </p>
+                    </section>
 
-            <div class="mt-6 pb-6 border-b border-gray-700 last:border-b-0">
-                <h3 class="text-xl font-semibold text-gray-100">Sabel Systems Technology Solutions, LLC</h3>
-                <p class="text-gray-300">Technology Intern</p>
-                <p class="text-gray-300">May 2024 – Aug. 2024 | Beavercreek, OH (Remote)</p>
-                <ul class="list-disc list-inside text-gray-200 mt-2 space-y-1">
-                    <li>Developed SabelGPT, an internal application using Python, OpenAI API, and LLM technology that allowed employees to use ordinary language to browse and retrieve large amounts of company data and information.</li>
-                    <li>Created, tested, and optimized CI/CD pipelines using GitLab CI/CD and several different C++ applications.</li>
-                    <li>Contributed to the company’s cloud engineering platform, Spacestation, by integrating several different API services using certificate authentication to provide data analytics to the user and internal services.</li>
-                </ul>
-                <p class="text-gray-200 mt-3 font-medium">Technologies used: <span class="font-normal">C++, Python, Ubuntu, Docker, GitLab CI/CD, OpenAI API, Azure DevOps, Microsoft Office, ServiceNow, Git, PowerShell, Jira, Agile methodologies, Bash, Rest APIs, Certificate authentication</span></p>
-            </div>
-        </section>
+                    <section class="bg-gray-800 p-6 rounded-lg shadow-md fade-in-section" id="education">
+                        <h2 class="text-3xl font-bold text-gray-50 mb-4 border-b-2 border-blue-500 pb-2">Education</h2>
+                        <div class="mb-4">
+                            <h3 class="text-xl font-semibold text-gray-100">University of Michigan - Ann Arbor</h3>
+                            <p class="text-gray-300">BSE Computer Science</p>
+                            <p class="text-gray-300">May 2026 | Ann Arbor, MI</p>
+                            <p class="text-gray-200 mt-2">Cumulative GPA: 3.92; Major GPA: 3.94</p>
+                            <p class="text-gray-200">University Honors - Fall 2022; Dean’s list - Fall 2022, Winter 2023, Fall 2023, Winter 2024</p>
+                            <p class="text-gray-200 mt-4 font-medium">Relevant Coursework (Grade Received):</p>
+                            <ul class="list-disc list-inside text-gray-300 ml-4 space-y-1">
+                                <li>Introduction to Machine Learning (A+)</li>
+                                <li>Web Systems (A)</li>
+                                <li>Computer Security (A)</li>
+                                <li>Computer Game Design and Development (A+)</li>
+                                <li>Data Structures and Algorithms (A-)</li>
+                                <li>Technical Communication (A+)</li>
+                            </ul>
+                        </div>
+                    </section>
 
-        <section class="bg-gray-800 p-6 rounded-lg shadow-md mb-8 fade-in-section" id="education">
-            <h2 class="text-3xl font-bold text-gray-50 mb-4 border-b-2 border-blue-500 pb-2">Education</h2>
-            <div class="mb-4">
-                <h3 class="text-xl font-semibold text-gray-100">University of Michigan - Ann Arbor</h3>
-                <p class="text-gray-300">BSE Computer Science</p>
-                <p class="text-gray-300">May 2026 | Ann Arbor, MI</p>
-                <p class="text-gray-200 mt-2">Cumulative GPA: 3.92; Major GPA: 3.94</p>
-                <p class="text-gray-200">University Honors - Fall 2022; Dean’s list - Fall 2022, Winter 2023, Fall 2023, Winter 2024</p>
-                <p class="text-gray-200 mt-4 font-medium">Relevant Coursework (Grade Received):</p>
-                <ul class="list-disc list-inside text-gray-300 ml-4 space-y-1">
-                    <li>Introduction to Machine Learning (A+)</li>
-                    <li>Web Systems (A)</li>
-                    <li>Computer Security (A)</li>
-                    <li>Computer Game Design and Development (A+)</li>
-                    <li>Data Structures and Algorithms (A-)</li>
-                    <li>Technical Communication (A+)</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="bg-gray-800 p-6 rounded-lg shadow-md mb-8 fade-in-section" id="skills">
-            <h2 class="text-3xl font-bold text-gray-50 mb-4 border-b-2 border-blue-500 pb-2">Skills & Abilities</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-100 mb-2">Languages/Frameworks:</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">C++</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Python</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">C#</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Terraform</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">PyTorch</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">CMake</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">HTML/CSS</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">JavaScript</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Flask</span>
-                    </div>
+                    <section class="bg-gray-800 p-6 rounded-lg shadow-md fade-in-section" id="skills">
+                        <h2 class="text-3xl font-bold text-gray-50 mb-4 border-b-2 border-blue-500 pb-2">Skills & Abilities</h2>
+                        <div class="flex flex-col gap-6">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-100 mb-2">Languages/Frameworks:</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">C++</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Python</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">C#</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Terraform</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">PyTorch</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">CMake</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">HTML/CSS</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">JavaScript</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Flask</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-100 mb-2">Technologies:</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Unity</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">AWS</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Git</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Docker</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">GitLab CI/CD</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Hadoop</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Ubuntu</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Jupyter Notebook</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">REST APIs</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Azure DevOps</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">ServiceNow</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Certificate Authentication</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">cybersecurity</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">computer vision</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-100 mb-2">Non-technical:</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Technical communication</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Agile methodologies</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Jira</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Teaching/Mentorship</span>
+                                    <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Leadership</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-100 mb-2">Technologies:</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Unity</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">AWS</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Git</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Docker</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">GitLab CI/CD</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Hadoop</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Ubuntu</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Jupyter Notebook</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">REST APIs</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Azure DevOps</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">ServiceNow</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Certificate Authentication</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Cybersecurity</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Computer Vision</span>
-                    </div>
-                </div>
-                <div class="md:col-span-2">
-                    <h3 class="text-xl font-semibold text-gray-100 mb-2">Non-technical:</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Technical communication</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Agile methodologies</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Jira</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Teaching/Mentorship</span>
-                        <span class="bg-gray-700 text-gray-300 text-sm font-medium px-3 py-1 rounded-full hover:bg-gray-600 hover:scale-105 transition-transform">Leadership</span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="bg-gray-800 p-6 rounded-lg shadow-md fade-in-section" id="other-projects">
-            <h2 class="text-3xl font-bold text-gray-50 mb-4 border-b-2 border-blue-500 pb-2">Other Projects</h2>
-            <div class="mb-4 pb-4 border-b border-gray-700 last:border-b-0">
-                <h3 class="text-xl font-semibold text-gray-100">ARV - Autonomous Robotic Vehicle Team</h3>
-                <ul class="list-disc list-inside text-gray-200 mt-2 space-y-1">
-                    <li>Designed models to assist with computer vision capabilities of a fully autonomous robotic vehicle.</li>
-                    <li>Developed a machine learning model using PyTorch in order to more accurately and efficiently detect obstacles.</li>
-                </ul>
+                <div class="lg:col-span-2 space-y-8">
+                    <section class="bg-gray-800 p-6 rounded-lg shadow-md fade-in-section" id="work-experience">
+                        <h2 class="text-3xl font-bold text-gray-50 mb-4 border-b-2 border-blue-500 pb-2">Work Experience</h2>
+
+                        <div class="pb-6 border-b border-gray-700 last:border-b-0">
+                            <h3 class="text-xl font-semibold text-gray-100">University of Michigan</h3>
+                            <p class="text-gray-300">Teacher's Assistant, Computer Game Design and Development</p>
+                            <p class="text-gray-300">Aug. 2025 – Present | Ann Arbor, MI</p>
+                            <ul class="list-disc list-inside text-gray-200 mt-2 space-y-1">
+                                <li>Instructed hundreds of students in an upper level game development course teaching Unity and C#.</li>
+                                <li>Held weekly office hours and contributed to the course curriculum, providing instruction and guidance to students about the process of developing games and designing engaging experiences through iterative design.</li>
+                                <li>Graded student projects and offered guidance on how to improve their gameplay systems across the semester.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-6 pb-6 border-b border-gray-700 last:border-b-0">
+                            <h3 class="text-xl font-semibold text-gray-100">Roblox</h3>
+                            <p class="text-gray-300">Software Engineering Intern</p>
+                            <p class="text-gray-300">May 2025 – Aug. 2025 | San Mateo, CA</p>
+                            <ul class="list-disc list-inside text-gray-200 mt-2 space-y-1">
+                                <li>Contributed to the game engine, developing features involving machine learning and C++ within a large codebase.</li>
+                                <li>These projects dealt with large amounts of user data and the associated manipulation, transmission, storage, etc.</li>
+                                <li>Specific details omitted for security reasons.</li>
+                            </ul>
+                            <p class="text-gray-200 mt-3 font-medium">Technologies used: <span class="font-normal">C++, AWS, Terraform, Git, Python, Windows API, Data Pipelines, CMake</span></p>
+                        </div>
+
+                        <div class="mt-6 pb-6 border-b border-gray-700 last:border-b-0">
+                            <h3 class="text-xl font-semibold text-gray-100">Sabel Systems Technology Solutions, LLC</h3>
+                            <p class="text-gray-300">Technology Intern</p>
+                            <p class="text-gray-300">May 2024 – Aug. 2024 | Beavercreek, OH (Remote)</p>
+                            <ul class="list-disc list-inside text-gray-200 mt-2 space-y-1">
+                                <li>Developed SabelGPT, an internal application using Python, OpenAI API, and LLM technology that allowed employees to use ordinary language to browse and retrieve large amounts of company data and information.</li>
+                                <li>Created, tested, and optimized CI/CD pipelines using GitLab CI/CD and several different C++ applications.</li>
+                                <li>Contributed to the company’s cloud engineering platform, Spacestation, by integrating several different API services using certificate authentication to provide data analytics to the user and internal services.</li>
+                            </ul>
+                            <p class="text-gray-200 mt-3 font-medium">Technologies used: <span class="font-normal">C++, Python, Ubuntu, Docker, GitLab CI/CD, OpenAI API, Azure DevOps, Microsoft Office, ServiceNow, Git, PowerShell, Jira, Agile methodologies, Bash, Rest APIs, Certificate authentication</span></p>
+                        </div>
+                    </section>
+                    
+                    <section class="bg-gray-800 p-6 rounded-lg shadow-md fade-in-section" id="other-projects">
+                        <h2 class="text-3xl font-bold text-gray-50 mb-4 border-b-2 border-blue-500 pb-2">Other Projects</h2>
+                        <div class="mb-4 pb-4 border-b border-gray-700 last:border-b-0">
+                            <h3 class="text-xl font-semibold text-gray-100">ARV - Autonomous Robotic Vehicle Team</h3>
+                            <ul class="list-disc list-inside text-gray-200 mt-2 space-y-1">
+                                <li>Designed models to assist with computer vision capabilities of a fully autonomous robotic vehicle.</li>
+                                <li>Developed a machine learning model using PyTorch in order to more accurately and efficiently detect obstacles.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-100">WolverineSoft - Video game development</h3>
+                            <ul class="list-disc list-inside text-gray-200 mt-2 space-y-1">
+                                <li>Lead several small teams in order to create and publish small projects in a short time frame.</li>
+                                <li>Participated in several game jams and discuss various aspects of video game development.</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
             </div>
-            <div>
-                <h3 class="text-xl font-semibold text-gray-100">WolverineSoft - Video game development</h3>
-                <ul class="list-disc list-inside text-gray-200 mt-2 space-y-1">
-                    <li>Lead several small teams in order to create and publish small projects in a short time frame.</li>
-                    <li>Participated in several game jams and discuss various aspects of video game development.</li>
-                </ul>
-            </div>
-        </section>
+        </main>
     </div>
 
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
@@ -274,13 +321,11 @@
         });
 
         const fadeInSections = document.querySelectorAll('.fade-in-section');
-
         const observerOptions = {
             root: null,
             rootMargin: '0px',
             threshold: 0.1
         };
-
         const sectionObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -289,10 +334,69 @@
                 }
             });
         }, observerOptions);
-
         fadeInSections.forEach(section => {
             sectionObserver.observe(section);
         });
+
+        const showTrailerBtn = document.getElementById('show-trailer');
+        const showGameBtn = document.getElementById('show-game');
+        const trailerContainer = document.getElementById('trailer-container');
+        const gameContainer = document.getElementById('game-container');
+
+        showTrailerBtn.addEventListener('click', () => {
+            trailerContainer.classList.remove('hidden');
+            gameContainer.classList.add('hidden');
+            showTrailerBtn.classList.add('active');
+            showGameBtn.classList.remove('active');
+        });
+
+        showGameBtn.addEventListener('click', () => {
+            gameContainer.classList.remove('hidden');
+            trailerContainer.classList.add('hidden');
+            showGameBtn.classList.add('active');
+            showTrailerBtn.classList.remove('active');
+
+            const iframe = document.getElementById('swornfish-iframe');
+            if (iframe && !iframe.getAttribute('src')) {
+                const gameSrc = iframe.getAttribute('data-src');
+                iframe.setAttribute('src', gameSrc);
+            }
+        });
+
+        const sheldonPlayBtn = document.getElementById('sheldon-play-btn');
+        const sheldonGameContainer = document.getElementById('sheldon-game-container');
+        const sheldonPlayBtnContainer = document.getElementById('sheldon-play-button-container');
+
+        sheldonPlayBtn.addEventListener('click', () => {
+            const iframe = document.getElementById('sheldon-iframe');
+            if (iframe && !iframe.getAttribute('src')) {
+                const gameSrc = iframe.getAttribute('data-src');
+                iframe.setAttribute('src', gameSrc);
+            }
+
+            sheldonGameContainer.classList.remove('hidden');
+            sheldonPlayBtnContainer.classList.add('hidden');
+        });
+
+        const gameTabs = document.querySelectorAll('.game-tab-btn');
+        const gamePanels = document.querySelectorAll('.game-panel');
+
+        gameTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                gamePanels.forEach(panel => panel.classList.add('hidden'));
+                gameTabs.forEach(t => t.classList.remove('active'));
+
+                const targetPanelId = tab.getAttribute('data-target');
+                const targetPanel = document.getElementById(targetPanelId);
+                if (targetPanel) {
+                    targetPanel.classList.remove('hidden');
+                }
+                tab.classList.add('active');
+            });
+        });
+
+        // The 'handleSwornfishDisplay' function and its 'DOMContentLoaded' and 'resize' 
+        // event listeners have been removed from here as they were causing the issue.
     </script>
 </body>
 </html>
