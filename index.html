@@ -96,11 +96,16 @@
             #game-tabs-nav,
             #show-game,
             #sheldon-play-button-container,
+            #metroid-play-button-container,
             #show-trailer {
                 display: none;
             }
 
             #sheldon-panel {
+                display: block;
+            }
+
+            #metroid-panel {
                 display: block;
             }
         }
@@ -159,6 +164,7 @@
                     class="flex flex-col sm:flex-row justify-center mb-6 border-b border-gray-700 max-w-3xl mx-auto">
                     <button class="game-tab-btn active" data-target="swornfish-panel">Swornfish</button>
                     <button class="game-tab-btn" data-target="sheldon-panel">Sheldon</button>
+                    <button class="game-tab-btn" data-target="metroid-panel">Metroid Remake</button>
                 </div>
 
                 <div id="game-panels-container" class="mt-8">
@@ -251,6 +257,42 @@
                                 <li>Technology used: Unity, C#</li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+
+                <div id="metroid-panel" class="game-panel hidden">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-100 mb-2">
+                            <a href="https://rhansen3.itch.io/metroid-remake"
+                                class="text-blue-300 text-3xl font-extrabold underline hover:text-blue-100 transition-colors duration-200"
+                                target="_blank" rel="noopener noreferrer">Metroid</a>
+                        </h3>
+                    </div>
+                
+                    <div class="my-4 max-w-[1032px] mx-auto">
+                        <div id="metroid-game-container" class="relative w-full overflow-hidden rounded-lg hidden"
+                            style="padding-top: 90%;">
+                            <iframe id="metroid-iframe" class="absolute top-0 left-0 w-full" style="height: 109%;" frameborder="0"
+                                data-src="https://itch.io/embed-upload/12771094?color=333333" allowfullscreen=""><a
+                                    href="https://rhansen3.itch.io/metroid-remake">Play Metroid on
+                                    itch.io</a></iframe>
+                        </div>
+                
+                        <div id="metroid-play-button-container" class="text-center py-20">
+                            <button id="metroid-play-btn"
+                                class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-6 rounded-lg text-lg transition-colors duration-200 shadow-lg">
+                                <i class="fas fa-play mr-2"></i>Play Game
+                            </button>
+                        </div>
+                    </div>
+                
+                    <div class="max-w-4xl mx-auto">
+                        <p class="text-gray-300 mb-2">A remake of Metroid for the NES in Unity with a custom level and mechanic playable to completion.</p>
+                        <ul class="list-disc list-inside text-gray-300 ml-4 mt-4 space-y-1">
+                            <li>Worked on about half of all of the programming, development, and creative decisions for the custom mechanic/level. My
+                            partner did the other half, however all work and decision-making was evenly split.</li>
+                            <li>Technology used: Unity, C#</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -528,17 +570,23 @@
         const sheldonGameContainer = document.getElementById('sheldon-game-container');
         const sheldonPlayBtnContainer = document.getElementById('sheldon-play-button-container');
 
-        if (sheldonPlayBtn) {
-            sheldonPlayBtn.addEventListener('click', () => {
-                sheldonGameContainer.classList.remove('hidden');
-                sheldonPlayBtnContainer.classList.add('hidden');
-
-                const iframe = document.getElementById('sheldon-iframe');
-                if (iframe && !iframe.src) {
-                    iframe.src = iframe.getAttribute('data-src');
-                }
-            });
+        function setupPlayButton({ buttonId, containerId, iframeId }) {
+            const btn = document.getElementById(buttonId);
+            const container = document.getElementById(containerId);
+            if (btn && container) {
+                btn.addEventListener('click', () => {
+                    container.classList.remove('hidden');
+                    btn.parentElement.classList.add('hidden');
+                    const iframe = document.getElementById(iframeId);
+                    if (iframe && !iframe.src) {
+                        iframe.src = iframe.getAttribute('data-src');
+                    }
+                });
+            }
         }
+
+        setupPlayButton({ buttonId: 'sheldon-play-btn', containerId: 'sheldon-game-container', iframeId: 'sheldon-iframe' });
+        setupPlayButton({ buttonId: 'metroid-play-btn', containerId: 'metroid-game-container', iframeId: 'metroid-iframe' });
 
         const gameTabBtns = document.querySelectorAll('.game-tab-btn');
         const gamePanels = document.querySelectorAll('.game-panel');
@@ -558,10 +606,6 @@
                 });
             });
         });
-
-        // START: Removed Mitten image cycler script
-        // The JavaScript for the image cycler has been deleted.
-        // END: Removed Mitten image cycler script
     </script>
 </body>
 
